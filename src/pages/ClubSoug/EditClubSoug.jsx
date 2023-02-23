@@ -25,8 +25,6 @@ const EditClubSoug = () => {
     msgErrBody,
     
     ShowMsgErrBody,
-   
-     setShowEditClub
   } = useStateContext();
   const {
   
@@ -46,13 +44,14 @@ const EditClubSoug = () => {
     nameClub,
     clubImage,
     clubBody,
+    setShowEditClub
   } = useUrlsContext();
  
 
   const [nameCompany, setNameCompany] = useState(nameClub);
   const [image, setImage] = useState(clubImage);
   const [body, setBody] = useState(clubBody);
-  let logoOldImage = clubImage.split("\\");
+  let logoOldImage = clubImage.split("/");
 
   const [imageSize, setImageSize] = useState(0);
   const [checkFindImage, setCheckFindImage] = useState("");
@@ -63,7 +62,7 @@ const EditClubSoug = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("club_name", nameCompany);
-    formData.append("image", imageSize != 0 ? image : clubImage);
+    formData.append("image", imageSize === 0 && checkFindImage === "" && typeImage === "" ?  clubImage : image);
     formData.append("body", body);
     validCompany(nameCompany);
     if (imageSize !== 0) {
@@ -108,6 +107,7 @@ const EditClubSoug = () => {
            else if (imageSize != 0 && showMsgErrImage !== true){
             editClubb(idClub , formData , imageSize == 0 ? 0 : 1 , logoOldImage[1]);
           }
+         // console.log(logoOldImage)
         //  if (imageSize == 0) {
         //   const dataClub = {
         //     club_name: nameCompany,

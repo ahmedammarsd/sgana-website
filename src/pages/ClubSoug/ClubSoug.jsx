@@ -9,9 +9,9 @@ import { useEffect } from 'react';
 import EditClubSoug from './EditClubSoug';
 
 const ClubSoug = () => {
-    const { baseUrl , showAddClubSoug , setShowAddClubSoug , showEditClub , setShowEditClub} = useStateContext();
+    const { baseUrl , showAddClubSoug , setShowAddClubSoug } = useStateContext();
     const { getAllClub , deleteClub ,clubsData  , dataClubsLoading  , dataClubsErrMsg  , dataClubsErrMsgShow  ,
-      getOneClub } 
+      getOneClub ,  showEditClub , setShowEditClub } 
     = useUrlsContext();
 
     const [showDetails , setShowDetails] = useState(false);
@@ -92,7 +92,6 @@ const ClubSoug = () => {
            <span className="text-2xl text-second-blue p-2 shadow-sm rounded-md hover:bg-second-blue hover:text-white cursor-pointer transition-all duration-300 ease-linear"
             onClick={() => {
               getOneClub(item.id)
-              setTimeout(() => setShowEditClub(true) , 200 )
             }
               } >
             <MdOutlineEditNote />

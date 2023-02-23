@@ -11,7 +11,7 @@ export const Context = ({children}) => {
     const [showProduct , setShowProduct ] = useState(false);
     const [showAddCompanies , setShowAddCompanies] = useState(false);
     const [showAddClubSoug , setShowAddClubSoug] = useState(false);
-    const [showEditClub , setShowEditClub] = useState(false);
+    
     const [ showAddUser , setShowAddUser] = useState(false);
     const [showEditProduct , setShowEditProduct] = useState(false);
 
@@ -219,7 +219,6 @@ export const Context = ({children}) => {
             validNameAddUser ,msgNameUser , setMsgNameUser , showMsgNameUser , setShowMsgNameUser ,
             validUserName , msgUserNameUser , setMsgUserNameUser , showMsgUserNameUser , setShowMsgUserNameUser ,
             validPassword ,msgPassword , setMsgPasseord , showMsgPassword , setShowMsgPassword ,
-            showEditClub , setShowEditClub
         }} >
             {children}
         </StateContext.Provider>

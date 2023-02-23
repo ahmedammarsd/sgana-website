@@ -550,6 +550,7 @@ export const ContextApi = ({children}) => {
        const [nameClub , setNameClub] = useState("")
        const [clubImage , setClubImage] = useState("");
        const [clubBody , setClubBody] = useState("");
+       const [showEditClub , setShowEditClub] = useState(false);
        const getOneClub = (id) => {
         axios.get(`${baseUrl}club/info-club/${id}` , {isDelete : 1} , {
           headers : {
@@ -563,6 +564,7 @@ export const ContextApi = ({children}) => {
           setClubImage(res.data.image);
           setClubBody(res.data.body);
           setStatusForUpdateClub(true);
+          setShowEditClub(true);
         })
         .catch( (err) => {
          // console.log(err);
@@ -640,7 +642,7 @@ export const ContextApi = ({children}) => {
         })
         .catch( (err) => {
          // console.log(err)
-         console.clear()
+       //  console.clear()
           setLoadingLogin(false);
           setShowErrMsgLoin(true);
           if (!err?.response) {
@@ -681,7 +683,7 @@ export const ContextApi = ({children}) => {
        }
 
        function checkTokenTwo() {
-       console.clear()
+       //console.clear()
         if (authTokenSission == undefined || sessionStorage.getItem("name_user") == undefined ) {
           navigatee("/login");
         }
@@ -711,6 +713,7 @@ export const ContextApi = ({children}) => {
               login ,loadingLogin , errMsgLogin , showErrMsgLogin , navigate ,
               authTokenSission,
               checkToken, logOut , checkTokenTwo
+              , showEditClub , setShowEditClub
 
         }}>
             {children}

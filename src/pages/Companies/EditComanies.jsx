@@ -45,7 +45,7 @@ const EditComanies = () => {
       const [nameCompany, setNameCompany] = useState(conmpanyNameForUpdate);
       const [image, setImage] = useState(logoCompanyForUpdate);
       const [body, setBody] = useState(bodyCompanyForUpdate);
-     let logoOldImage = logoCompanyForUpdate.split("\\");
+     let logoOldImage = logoCompanyForUpdate.split("/");
       const [imageSize, setImageSize] = useState(0);
       const [checkFindImage, setCheckFindImage] = useState("");
       const [typeImage, setTypeImage] = useState("");
